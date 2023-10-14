@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "98913358952",
+    "firebase_url": "https://charge-alarm-25066.firebaseio.com",
+    "project_id": "charge-alarm-25066",
+    "storage_bucket": "charge-alarm-25066.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98913358952:android:1fa4e7da0911737c",
+        "android_client_info": {
+          "package_name": "com.benevolenceinc.chargealaram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98913358952-gtoe6gitr2jnnkcgjie120dss10643he.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZWzPwpDDH0kztJ7ZoAajkBfHpew13I0Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

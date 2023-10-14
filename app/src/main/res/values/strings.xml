@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Charge Alarm</string>
+    <string name="add_alarm">Add Alarm</string>
+    <string name="set_charge_alarm_at">Set \n Charge Alarm at</string>
+    <string name="app_ad_id">ca-app-pub-3271155424547397~2793324070</string>
+    <string name="banner_id">ca-app-pub-3271155424547397/5658504021</string>
+    <string name="interstitial_id">ca-app-pub-3271155424547397/9406177343</string>
+<!--    <string name="banner_id">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="interstitial_id">ca-app-pub-3940256099942544/1033173712</string>-->
+</resources>

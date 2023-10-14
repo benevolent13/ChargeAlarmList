@@ -1,0 +1,96 @@
+<com.chauthai.swipereveallayout.SwipeRevealLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="92dp"
+    android:layout_margin="8dp"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/item_bg"
+    android:elevation="8dp"
+    android:padding="4dp"
+    app:dragEdge="right"
+    app:mode="same_level">
+
+    <!-- Your secondary layout here -->
+    <RelativeLayout
+        android:id="@+id/rlImage"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/trash"/>
+    </RelativeLayout>
+    <!-- Your main layout here -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/tvPercentage"
+            style="@style/PrimaryTextBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="4dp"
+            android:gravity="center_horizontal"
+            android:text="23"
+            android:textColor="@color/colorPrimary"
+            android:textSize="48sp"/>
+
+        <TextView
+            style="@style/PrimaryTextBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvPercentage"
+            android:layout_gravity="center"
+            android:layout_toRightOf="@+id/tvPercentage"
+            android:gravity="center_horizontal"
+            android:text="%"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"/>
+
+        <!-- <vn.luongvo.widget.iosswitchview.SwitchView
+             android:id="@+id/switcher"
+             android:layout_width="54dp"
+             android:layout_height="wrap_content"
+             android:layout_alignParentEnd="true"
+             android:layout_alignParentRight="true"
+             android:layout_centerInParent="true"
+             android:layout_margin="16dp"
+             app:checked="true"
+             app:color_off="@color/colorPrimary"
+             app:color_on="@color/colorAccent"/>-->
+        <com.nightonke.jellytogglebutton.JellyToggleButton
+            android:id="@+id/jellyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            app:jtbDraggable="false"
+            app:jtbDuration="500"
+            android:checked="true"
+            app:jtbJelly="active_stiff_slim_jim"
+            app:jtbLeftBackgroundColor="@color/grey"
+            app:jtbLeftThumbColor="@color/light_black"
+            app:jtbRightBackgroundColor="@color/grey"
+            app:jtbRightThumbColor="@color/colorPrimary"
+            />
+    </RelativeLayout>
+
+
+</com.chauthai.swipereveallayout.SwipeRevealLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+
+        <TextView
+            style="@style/PrimaryTextBold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/add_alarm"
+            android:textColor="#fff"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+
+    <TextView
+        style="@style/PrimaryTextBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/rl"
+        android:padding="16dp"
+        android:layout_above="@+id/cardView"
+        android:text="@string/set_charge_alarm_at"
+        android:textColor="@color/colorPrimary"
+        android:textSize="32sp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/numberPicker"
+            app:np_textSize="64sp"
+            app:np_width="146sp"
+            app:np_dividerDistance="154sp"
+            android:dividerPadding="4dp"
+            app:np_dividerThickness="4dp"
+            app:np_selectedTextSize="86dp"
+            app:np_dividerColor="@color/colorPrimary"
+            app:np_selectedTextAlign="selectedTextAlignCenter"
+            app:np_orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="164sp"/>
+    </androidx.cardview.widget.CardView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:src="@drawable/tick"
+        android:id="@+id/floatingButton"
+        android:layout_above="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"/>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_id"
+        />
+
+</RelativeLayout>
