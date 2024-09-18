@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     namespace 'com.benevolenceinc.chargealaram'
-    compileSdkVersion 33
+    compileSdkVersion 34
     defaultConfig {
         applicationId "com.benevolenceinc.chargealaram"
-        minSdkVersion 19
-        targetSdkVersion 33
-        versionCode 3
-        versionName "2.0"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 6
+        versionName "6.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -20,29 +20,29 @@ android {
     }
 }
 ext {
-    supportLibVersion = '1.0.0'
+    supportLibVersion = '1.12.0'
     // variable that can be referenced to keep support libs consistent
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.9'
-    def work_version = "2.8.1"
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:3.0.2'
+    def work_version = "2.9.1"
 
     // (Java only)
     implementation "androidx.work:work-runtime:$work_version"
     implementation "androidx.work:work-runtime-ktx:$work_version"
     // Kotlin + coroutines
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "androidx.appcompat:appcompat:${supportLibVersion}"
-    implementation "androidx.cardview:cardview:${supportLibVersion}"
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    implementation "androidx.cardview:cardview:1.0.0"
     implementation "com.google.android.material:material:${supportLibVersion}"
     implementation 'com.google.firebase:firebase-core:21.1.1'
-    implementation 'com.google.firebase:firebase-ads:22.4.0'
+    implementation 'com.google.firebase:firebase-ads:23.3.0'
     implementation 'com.github.luongvo:iOS-SwitchView:1.0.0'
     implementation 'io.github.ShawnLin013:number-picker:2.4.13'
     implementation 'com.nightonke:jellytogglebutton:1.0.2'
     implementation 'com.github.Android-library-copy-dependencies:SwipeRevealLayout:1.5.2'
-    implementation 'com.google.guava:guava:29.0-android'
+    implementation 'com.google.guava:guava:31.1-android'
     implementation 'com.android.support:multidex:1.0.3'
 }
 apply plugin: 'com.google.gms.google-services'
