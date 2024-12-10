@@ -2,6 +2,8 @@ package com.benevolenceinc.chargealaram.activity;
 
 import static android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS;
 
+
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -10,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -118,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
         list = databaseHelper.getData();
 
-        if (list.size() == 0) {
+        if (list.isEmpty()) {
             textView.setVisibility(View.VISIBLE);
         } else {
             textView.setVisibility(View.GONE);
@@ -134,9 +138,11 @@ public class MainActivity extends AppCompatActivity {
                         PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(
                         MainActivity.this, Manifest.permission.READ_PHONE_STATE) ==
                         PackageManager.PERMISSION_GRANTED)) {
-                    if (mInterstitialAd != null) {
+                    if (mInterstitialAd != null && canShowAd()) {
+                        setPreferenceValue();
                         mInterstitialAd.show(MainActivity.this);
                     } else {
+                        setPreferenceValue();
                         Intent intent = new Intent(MainActivity.this, AddAlarmActivity.class);
                         startActivity(intent);
                     }
@@ -147,10 +153,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                showDialog();
+            }
+        });
+
         DataAdapater dataAdapater = new DataAdapater(list, getApplicationContext());
         recyclerView.setAdapter(dataAdapater);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+    }
+
+    void setPreferenceValue(){
+        SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+SharedPreferences.Editor editor = sharedPref.edit();
+int value = getPreferenceValue();
+value++;
+editor.putInt(getString(R.string.ad_showing_key), value);
+editor.apply();
+    }
+
+    int getPreferenceValue(){
+        SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+        return sharedPref.getInt(getString(R.string.ad_showing_key), 0);
+    }
+
+    boolean canShowAd(){
+        return getPreferenceValue()% 3 == 0;
     }
 
     void dataLog(){
@@ -239,13 +270,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         alertDialog.show();
-    }
-
-    @Override
-    public void onBackPressed() {
-        showDialog();
     }
 
     private void showDialog() {
